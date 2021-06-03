@@ -1,0 +1,34 @@
+
+# HTID:17576817: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:17576817:
+
+Options -Indexes
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine On
+    RewriteRule ^$ views/index.php?page_title=login [L,NC]
+    RewriteRule ^login.php views/index.php?page_title=login [L,NC]
+    RewriteRule ^dashboard.php views/index.php?page_title=dashboard [L,NC]
+    RewriteRule ^crimes.php views/index.php?page_title=crimes [L,NC]
+    RewriteRule ^lost_items.php views/index.php?page_title=lost_items [L,NC]
+    RewriteRule ^surrendered_items.php views/index.php?page_title=surrendered_items [L,NC]
+    RewriteRule ^missing_persons.php views/index.php?page_title=missing_persons [L,NC]
+    RewriteRule ^users_account.php views/index.php?page_title=users_account [L,NC]
+    RewriteRule ^settings.php views/index.php?page_title=settings [L,NC]
+    RewriteRule ^logout.php views/includes/logout.php [L,NC]
+
+    RewriteRule ^report/([a-zA-Z]+)/([a-zA-Z]+) views/pages/report.php?report_section=$1&report_date=$1 [NC,QSA]
+
+    RewriteRule ^LoginSuccess/([a-zA-Z]+) views/includes/login_success.php?username=$1 [L,NC]
+
+    RewriteRule ^Report/([a-zA-Z]+) views/pages/report.php?report_id=$1 [L,NC]
+
+    RewriteRule ^API/Crimes/([a-zA-Z]+) controllers/Crimes.php?fn=$1 [L,NC]
+    RewriteRule ^API/CrimeTypes/([a-zA-Z]+) controllers/CrimeTypes.php?fn=$1 [L,NC]
+    RewriteRule ^API/LostItems/([a-zA-Z]+) controllers/LostItems.php?fn=$1 [L,NC]
+    RewriteRule ^API/MissingPersons/([a-zA-Z]+) controllers/MissingPersons.php?fn=$1 [L,NC]
+    RewriteRule ^API/Persons/([a-zA-Z]+) controllers/Persons.php?fn=$1 [L,NC]
+    RewriteRule ^API/UsersAccount/([a-zA-Z]+) controllers/UsersAccount.php?fn=$1 [L,NC]
+
+</IfModule>
