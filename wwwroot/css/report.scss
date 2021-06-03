@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    font-size: 10px;
+}
+
+$theme_colors: (
+    'primary': #2f9eff,
+    'primary-light': lighten(#2f9eff, 35%),
+    'primary-dark': darken(#2f9eff, 15%),
+    'secondary': #2F2E41,
+    'secondary-light': lighten(#2F2E41, 35%),
+    'background': white
+);
+
+*, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: map-get($theme_colors, 'secondary');
+}
+
+@page {
+    padding: 0;
+    margin: 0;
+}
+
+.report_title {
+    text-align: center;
+    margin: 5rem 0 3rem 0;
+
+    h2 {
+        font-size: 3rem;
+        font-weight: 800;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: map-get($theme_colors, 'secondary-light');
+    }
+}
+
+#report_section {
+    padding: 3rem 0 0 3rem;
+    font-size: 2rem;
+    font-weight: 800;
+    font-variant: small-caps;
+
+    &::after {
+        content: ' Report';
+    }
+}
+
+#report_date {
+    padding: 0 3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: map-get($theme_colors, 'secondary-light');
+
+    &::before {
+        content: 'As of ';
+    }
+}
+
+.table {
+    width: 100%;
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: .5rem;
+    font-size: 1.4rem;
+    padding: 1rem;
+    border: 1px solid rgb(231, 231, 231);
+}
+
+td {
+    font-weight: 500;
+}
+
+.print_report_btn {
+    padding: 1rem 2rem;
+    background: map-get($theme_colors, 'primary-dark');
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 3rem;
+    font-variant-caps: small-caps;
+    letter-spacing: .2rem;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.541));
+
+    &::before{
+        content: '';
+        padding: .8rem;
+        mask-image: url('../icons/print-solid.svg');
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
+        background-color: map-get($theme_colors, 'background');
+        margin-right: 1rem;
+    }
+
+    &:hover {
+        background: map-get($theme_colors, 'primary');
+    }
+}
